@@ -19,8 +19,39 @@
   }
 }
 
+@keyframes waterSheen {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-30px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-water-sheen {
+  animation: waterSheen 24s ease-in-out infinite;
+}
+
+@keyframes gridDrift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-20px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-grid-drift {
+  animation: gridDrift 38s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-water-drift,
+  .animate-water-sheen {
+    animation: none;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  outline: 8px solid red !important;
 }
