@@ -5,7 +5,7 @@ export default function StayOpsPage() {
   /**
    * Recommended:
    * Add NEXT_PUBLIC_STAYOPS_APP_URL to your judcotech-site env vars (Vercel Project Settings -> Environment Variables)
-   * Example value: https://judcotech.com/stayops
+   * Example value: https://app.judcotech.com/login
    *
    * Then Broker Login becomes `${NEXT_PUBLIC_STAYOPS_APP_URL}/broker`
    */
@@ -15,7 +15,7 @@ export default function StayOpsPage() {
   // Fallback if env var not set (keeps page functional locally)
   const STAYOPS_APP_URL = BASE_APP_URL
     ? `${BASE_APP_URL}/broker`
-    : "https://YOUR-CAPE-MAY-APP-VERCEL-URL/broker";
+    : "https://app.judcotech.com/login";
 
   return (
     <div className="min-h-screen bg-white text-zinc-950">
