@@ -9,7 +9,8 @@ export default function Home() {
   }
 
   // TODO: Replace with your deployed cape-may-app URL (Vercel prod)
-  const STAYOPS_APP_URL = "https://judcotech/broker.com";
+  const STAYOPS_APP_URL =
+  process.env.NEXT_PUBLIC_STAYOPS_APP_URL || "https://judcotech.com/products";
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-950 flex flex-col">

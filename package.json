@@ -2,12 +2,15 @@
   "name": "judcotech-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
+"scripts": {
+  "dev": "next dev",
+  "dev:webpack": "next dev --webpack",
+  "clean": "rm -rf .next node_modules",
+  "reinstall": "rm -rf .next node_modules package-lock.json && npm install",
+  "build": "next build",
+  "start": "next start",
+  "lint": "next lint"
+},
   "dependencies": {
     "next": "16.1.6",
     "react": "19.2.3",
