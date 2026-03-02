@@ -15,8 +15,6 @@ export default function Home() {
     document.getElementById("platforms")?.scrollIntoView({ behavior: "smooth" });
   }
 
-  // TODO: Replace with your deployed cape-may-app URL (Vercel prod)
-
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-950 flex flex-col">
       <main className="flex-1">
@@ -28,11 +26,9 @@ export default function Home() {
             style={{ backgroundImage: "url('/hero/judcotech_hero.png')" }}
           />
 
-          {/* Water-only movement illusion (REALISTIC: dark troughs + light highlights + sheen) */}
+          {/* Water-only movement illusion */}
           <div className="absolute inset-0 pointer-events-none">
-            {/* Water starts ~1/2 down */}
             <div className="absolute inset-x-0 bottom-0 top-[50%] overflow-hidden">
-              {/* 45° shoreline feather + vertical feather (prevents spill onto beach) */}
               <div
                 className="absolute inset-0"
                 style={{
@@ -47,7 +43,6 @@ export default function Home() {
                   `,
                 }}
               >
-                {/* DARK troughs (adds depth) */}
                 <div
                   className="absolute inset-0 opacity-[0.14] mix-blend-multiply"
                   style={{
@@ -59,8 +54,6 @@ export default function Home() {
                     willChange: "background-position",
                   }}
                 />
-
-                {/* LIGHT highlights (wave crests) */}
                 <div
                   className="absolute inset-0 opacity-[0.10] mix-blend-soft-light"
                   style={{
@@ -72,8 +65,6 @@ export default function Home() {
                     willChange: "background-position",
                   }}
                 />
-
-                {/* SHEEN (broad moving specular) */}
                 <div
                   className="absolute inset-0 opacity-[0.10] mix-blend-overlay"
                   style={{
@@ -88,7 +79,6 @@ export default function Home() {
           </div>
 
           <style jsx>{`
-            /* One-direction flow (left -> right) */
             @keyframes waterFlow {
               0% {
                 background-position: 0px 0px;
@@ -97,8 +87,6 @@ export default function Home() {
                 background-position: 320px 60px;
               }
             }
-
-            /* Slightly different speed/offset to avoid “pattern” look */
             @keyframes waterFlow2 {
               0% {
                 background-position: 40px 10px;
@@ -107,8 +95,6 @@ export default function Home() {
                 background-position: 360px 70px;
               }
             }
-
-            /* Broad specular drift (also left -> right only) */
             @keyframes sheenFlow {
               0% {
                 transform: translate3d(0px, 0px, 0);
@@ -136,10 +122,17 @@ export default function Home() {
                   <span className="font-medium text-white"> powered by ARC Intelligence</span>.
                 </p>
 
+                {/* ✅ Legal entity (high visibility for brand verification) */}
+                <p className="mt-4 text-sm text-white/75">
+                  Operated by <strong className="text-white">JUDCO LLC</strong>.
+                </p>
+
                 <div className="mt-10 max-w-xl rounded-xl border border-white/15 bg-white/10 px-4 py-3 backdrop-blur">
                   <p className="text-xs font-medium text-white/70">Product</p>
                   <p className="mt-1 text-sm font-medium text-white">StayOps</p>
-                  <p className="mt-1 text-xs text-white/70">Powered by ARC Intelligence • A JudcoTech platform</p>
+                  <p className="mt-1 text-xs text-white/70">
+                    Powered by ARC Intelligence • A JudcoTech platform
+                  </p>
                 </div>
 
                 <div className="mt-10 flex flex-wrap gap-3">
@@ -227,7 +220,6 @@ export default function Home() {
                   <div>
                     <p className="text-xs font-medium text-zinc-500">Active product</p>
 
-                    {/* Title + logo */}
                     <div className="mt-2 flex items-center gap-3">
                       <div className="relative h-8 w-8 shrink-0">
                         <Image
@@ -297,9 +289,7 @@ export default function Home() {
               <div className="rounded-2xl border border-zinc-200 bg-white p-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs font-medium text-zinc-500">
-                      Engine
-                    </p>
+                    <p className="text-xs font-medium text-zinc-500">Engine</p>
                     <h3 className="mt-2 text-lg font-semibold tracking-tight">
                       ARC Intelligence
                     </h3>
@@ -417,6 +407,21 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* ✅ Visible legal line near footer for reviewers */}
+      <div className="border-t border-zinc-200 px-6 py-6">
+        <div className="mx-auto max-w-6xl text-xs text-zinc-500 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <span>
+            © {new Date().getFullYear()} <strong>JUDCO LLC</strong>. All rights reserved.
+          </span>
+          <span>
+            Support:{" "}
+            <a className="underline underline-offset-4" href="mailto:judcotech@gmail.com">
+              judcotech@gmail.com
+            </a>
+          </span>
+        </div>
+      </div>
 
       <SiteFooter />
     </div>
