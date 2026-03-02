@@ -16,8 +16,6 @@ export default function Home() {
   }
 
   // TODO: Replace with your deployed cape-may-app URL (Vercel prod)
-  const STAYOPS_APP_URL =
-  process.env.NEXT_PUBLIC_STAYOPS_APP_URL || "https://app.judcotech.com/broker";
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-950 flex flex-col">
@@ -404,7 +402,7 @@ export default function Home() {
                   </a>
 
                   <a
-                    href={STAYOPS_APP_URL}
+                    href={BROKER_LOGIN_URL}
                     className="inline-flex items-center justify-center rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
                   >
                     Broker Login
