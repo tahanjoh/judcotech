@@ -2,6 +2,13 @@
 
 import Link from "next/link";
 import SiteFooter from "../components/SiteFooter";
+import Image from "next/image";
+
+const APP_BASE =
+  process.env.NEXT_PUBLIC_APP_BASE_URL?.replace(/\/+$/, "") ||
+  "https://app.judcotech.com";
+
+const BROKER_LOGIN_URL = `${APP_BASE}/login`;
 
 export default function Home() {
   function scrollToPlatforms() {
@@ -10,7 +17,7 @@ export default function Home() {
 
   // TODO: Replace with your deployed cape-may-app URL (Vercel prod)
   const STAYOPS_APP_URL =
-  process.env.NEXT_PUBLIC_STAYOPS_APP_URL || "https://judcotech.com/products";
+  process.env.NEXT_PUBLIC_STAYOPS_APP_URL || "https://app.judcotech.com/broker";
 
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-950 flex flex-col">
@@ -147,7 +154,7 @@ export default function Home() {
                   </button>
 
                   <a
-                    href={STAYOPS_APP_URL}
+                    href={BROKER_LOGIN_URL}
                     className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white hover:bg-white/15"
                   >
                     Broker Login
@@ -201,7 +208,7 @@ export default function Home() {
 
               <div className="flex gap-3">
                 <a
-                  href={STAYOPS_APP_URL}
+                  href={BROKER_LOGIN_URL}
                   className="inline-flex items-center justify-center rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white hover:bg-zinc-800"
                 >
                   Broker Login
@@ -220,21 +227,37 @@ export default function Home() {
               <div className="rounded-2xl border border-zinc-200 bg-white p-8">
                 <div className="flex items-start justify-between gap-4">
                   <div>
-                    <p className="text-xs font-medium text-zinc-500">
-                      Active product
-                    </p>
-                    <h3 className="mt-2 text-lg font-semibold tracking-tight">
-                      StayOps
-                    </h3>
-                    <p className="mt-2 text-sm leading-7 text-zinc-600">
-                      Automated guest communication, feedback, and operational insight for professional vacation rental
-                      brokers. Built to streamline the guest lifecycle while keeping broker branding front and center.
+                    <p className="text-xs font-medium text-zinc-500">Active product</p>
+
+                    {/* Title + logo */}
+                    <div className="mt-2 flex items-center gap-3">
+                      <div className="relative h-8 w-8 shrink-0">
+                        <Image
+                          src="/logo/stayops-icon.png"
+                          alt="StayOps"
+                          fill
+                          className="object-contain opacity-90"
+                          sizes="32px"
+                          priority={false}
+                        />
+                      </div>
+
+                      <h3 className="text-lg font-semibold tracking-tight">StayOps</h3>
+                    </div>
+
+                    <p className="mt-3 text-sm leading-7 text-zinc-600">
+                      Automated guest communication, feedback, and operational insight for
+                      professional vacation rental brokers. Built to streamline the guest
+                      lifecycle while keeping broker branding front and center.
                     </p>
 
                     <div className="mt-4 grid gap-2 text-sm text-zinc-700">
                       <div className="flex items-start gap-2">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-zinc-900" />
-                        <span>Automated check-in → mid-stay → trash/recycling → checkout communications</span>
+                        <span>
+                          Automated check-in → mid-stay → trash/recycling → checkout
+                          communications
+                        </span>
                       </div>
                       <div className="flex items-start gap-2">
                         <span className="mt-2 h-1.5 w-1.5 rounded-full bg-zinc-900" />
@@ -260,7 +283,7 @@ export default function Home() {
                     View StayOps
                   </Link>
                   <a
-                    href={STAYOPS_APP_URL}
+                    href={BROKER_LOGIN_URL}
                     className="inline-flex items-center justify-center rounded-lg border border-zinc-200 bg-white px-5 py-3 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
                   >
                     Broker Login

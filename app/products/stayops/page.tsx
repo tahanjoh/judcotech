@@ -1,11 +1,11 @@
 import Link from "next/link";
-import SiteHeader from "../../../components/SiteHeader";
+import Image from "next/image";
 
 export default function StayOpsPage() {
   /**
    * Recommended:
    * Add NEXT_PUBLIC_STAYOPS_APP_URL to your judcotech-site env vars (Vercel Project Settings -> Environment Variables)
-   * Example value: https://app.judcotech.com/login
+   * Example value: https://app.judcotech.com
    *
    * Then Broker Login becomes `${NEXT_PUBLIC_STAYOPS_APP_URL}/broker`
    */
@@ -15,17 +15,33 @@ export default function StayOpsPage() {
   // Fallback if env var not set (keeps page functional locally)
   const STAYOPS_APP_URL = BASE_APP_URL
     ? `${BASE_APP_URL}/broker`
-    : "https://app.judcotech.com/login";
+    : "https://app.judcotech.com/broker";
 
   return (
-    <div className="min-h-screen bg-white text-zinc-950">
-      <SiteHeader variant="product" />
-
+    <div className="bg-white text-zinc-950">
       {/* Hero */}
       <section className="px-6 pb-16 pt-16">
         <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-2">
           {/* Left: Copy */}
           <div className="max-w-3xl">
+            {/* StayOps brand mark (hero-level, not a second header) */}
+            <div className="mb-5 flex items-center gap-3">
+          <div className="relative h-11 w-11 shrink-0">
+              <Image
+                src="/logo/stayops-icon.png"
+                alt="StayOps"
+                fill
+                priority
+                className="object-contain"
+                sizes="44px"
+              />
+             </div>
+              <div className="leading-tight">
+                <div className="text-sm font-semibold text-zinc-900">StayOps</div>
+                <div className="text-xs text-zinc-500">A JudcoTech platform</div>
+              </div>
+            </div>
+
             <p className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs font-medium text-zinc-700">
               Product
               <span className="h-1 w-1 rounded-full bg-zinc-300" />
