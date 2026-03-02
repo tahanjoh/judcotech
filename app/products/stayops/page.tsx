@@ -12,6 +12,12 @@ export default function StayOpsPage() {
   const BASE_APP_URL =
     process.env.NEXT_PUBLIC_STAYOPS_APP_URL?.replace(/\/+$/, "") || "";
 
+    const APP_BASE =
+  process.env.NEXT_PUBLIC_APP_BASE_URL ||
+  "https://app.judcotech.com";
+
+const BROKER_LOGIN_URL = `${APP_BASE}/login`;
+
   // Fallback if env var not set (keeps page functional locally)
   const STAYOPS_APP_URL = BASE_APP_URL
     ? `${BASE_APP_URL}/broker`
@@ -72,15 +78,15 @@ export default function StayOpsPage() {
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
               <a
-                href="mailto:hello@judcotech.com?subject=StayOps%20Demo%20Request"
+                href="mailto:judcotech@gmail.com?subject=StayOps%20Demo%20Request"
                 className="inline-flex items-center justify-center rounded-lg bg-zinc-950 px-6 py-3 text-sm font-medium text-white hover:bg-zinc-800"
               >
                 Request a demo
               </a>
 
               <a
-                href={STAYOPS_APP_URL}
-                className="inline-flex items-center justify-center rounded-lg border border-zinc-200 bg-white px-6 py-3 text-sm font-medium text-zinc-900 hover:bg-zinc-50"
+                href={BROKER_LOGIN_URL}
+                className="inline-flex items-center justify-center rounded-lg bg-zinc-950 px-5 py-3 text-sm font-medium text-white hover:bg-zinc-800"
               >
                 Broker Login
               </a>
